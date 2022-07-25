@@ -1,0 +1,17 @@
+class Solution {
+    public int[] singleNumber(int[] a) {
+       HashMap<Integer,Integer> h=new HashMap<Integer,Integer>();
+      int[] c=new int[2];
+        for(int i : a){
+       if(h.containsKey(i))
+         h.put(i,h.get(i)+1);
+       else h.put(i,1);
+      }
+    int i=0;
+      for(Map.Entry e : h.entrySet()){
+         if((int)e.getValue()==1)
+         c[i++]=(int)e.getKey();
+      }
+     return c;   
+    }
+}
